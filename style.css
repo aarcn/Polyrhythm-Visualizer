@@ -1,0 +1,200 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+#visualization {
+    position: relative;
+    width: 80vw;
+    height: 30vh;
+    margin: 0 auto;
+    transform: translateY(-40%);
+}
+
+.line {
+    position: absolute;
+    width: 2px;
+    height: 30%;
+    background-color: white;
+    bottom: 10%;
+    z-index: 1;
+}
+
+.red-extension::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 50%;
+    background-color: red;
+    bottom: 100%;
+    z-index: -1;
+}
+
+.blue-extension::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 50%;
+    background-color: blue;
+    top: 100%;
+    z-index: -1;
+}
+
+#rhythmForm {
+    position: fixed;
+    top: 20vh;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    z-index: 2;
+    background-color: #414141;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 7px 8px rgba(255, 255, 255, 0.05);
+}
+
+#rhythmForm input[type="number"],
+#rhythmForm button {
+    padding: 10px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#rhythmForm button {
+    background-color: #ffffff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#rhythmForm button:hover {
+    background-color: #bbbbbb;
+}
+
+#rhythmForm,
+#visualization {
+    max-width: 600px;
+}
+
+@media (max-width: 768px) {
+    #visualization {
+        width: 90vw;
+        height: 25vh;
+    }
+    
+    #rhythmForm {
+        top: 10vh;
+        left: 50%;
+        transform: translate(-50%, -10vh);
+    }
+    
+    .line,
+    .red-extension::before,
+    .blue-extension::after {
+        width: 1.5px;
+    }
+}
+
+@media (max-width: 480px) {
+    #visualization {
+        width: 95vw;
+        height: 20vh;
+    }
+
+    #rhythmForm {
+        top: 15vh;
+    }
+
+    .line,
+    .red-extension::before,
+    .blue-extension::after {
+        width: 1px;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-width: 1200px) {
+    #rhythmForm {
+        position: fixed;
+        top: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        z-index: 2;
+        background-color: #414141;
+        box-sizing: border-box;
+    }
+
+    #rhythmForm input[type="number"],
+    #rhythmForm button {
+        margin: 0 5px;
+        flex: 1 1 auto;
+        max-width: 300px;
+    }
+
+    #rhythmForm button {
+        padding: 10px 20px;
+    }
+    
+    #visualization {
+        position: absolute;
+        bottom: 10%;
+        width: 100%;
+        height: calc(100vh - 60px);
+        transform: none;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-width: 768px) {
+    #rhythmForm {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: #414141;
+    }
+
+    #rhythmForm input[type="number"],
+    #rhythmForm button {
+        flex: 1;
+        margin: 5px;
+    }
+
+    #rhythmForm input[type="number"] {
+        max-width: none;
+    }
+
+    #rhythmForm button {
+        padding: 10px 20px;
+    }
+    
+    #visualization {
+        position: absolute;
+        top: 15vh;
+        width: 100%;
+        height: 85vh;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-width: 480px) {
+    #rhythmForm {
+        padding: 8px;
+    }
+
+    #visualization {
+        top: 10vh;
+        height: 90vh;
+    }
+}
